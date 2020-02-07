@@ -1,4 +1,13 @@
-﻿using System;
+﻿/*
+
+* Author: Blake Hachen
+
+* Class name: TrailBurger
+
+* Purpose: Inherits methods from the entree base class. This class represents the Trail Burger entree.
+
+*/
+using System;
 using System.Collections.Generic;
 
 namespace CowboyCafe.Data

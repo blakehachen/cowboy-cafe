@@ -1,4 +1,13 @@
-﻿using System;
+﻿/*
+
+* Author: Blake Hachen
+
+* Class name: DakotaDoubleBurger
+
+* Purpose: Inherits methods from the entree base class. This class represents the Dakota Double Burgewr entree.
+
+*/
+using System;
 using System.Collections.Generic;
 
 namespace CowboyCafe.Data

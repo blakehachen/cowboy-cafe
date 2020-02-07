@@ -1,6 +1,15 @@
-﻿using System;
+﻿/*
+
+* Author: Blake Hachen
+
+* Class name: Side
+
+* Purpose: This creates a base class that side classes can inherit methods from.
+
+*/
+using System;
 using System.Collections.Generic;
-using System.Text;
+
 
 namespace CowboyCafe.Data
 {

@@ -1,4 +1,13 @@
-﻿using System;
+﻿/*
+
+* Author: Blake Hachen
+
+* Class name: RustlersRibs
+
+* Purpose: Inherits methods from the Entree base class. This class represents the Rustler's Ribs Entree.
+
+*/
+using System;
 using System.Collections.Generic;
 
 namespace CowboyCafe.Data

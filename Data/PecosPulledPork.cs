@@ -1,4 +1,13 @@
-﻿using System;
+﻿/*
+
+* Author: Blake Hachen
+
+* Class name: PecosPulledPork
+
+* Purpose: Inherits methods from the entree base class. This class represents the Pecos Pulled Pork entree.
+
+*/
+using System;
 using System.Collections.Generic;
 
 namespace CowboyCafe.Data

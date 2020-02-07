@@ -1,6 +1,16 @@
-﻿using System;
+﻿/*
+
+* Author: Blake Hachen
+
+* Class name: Baked Beans
+
+* Purpose: Inherits methods from the side base class. This class represents the Baked Beans side.
+
+*/
+
+using System;
 using System.Collections.Generic;
-using System.Text;
+
 
 namespace CowboyCafe.Data
 {

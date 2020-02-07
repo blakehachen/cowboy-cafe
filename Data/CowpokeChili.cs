@@ -1,4 +1,16 @@
-﻿using System;
+﻿/*
+
+* Author: Nathan Bean
+
+* Edited by: Blake Hachen 
+
+* Class name: CowpokeChili
+
+* Purpose: Inherits methods from the entree base class. This class represents the Cowpoke Chili entree.
+
+*/
+
+using System;
 using System.Collections.Generic;
 
 namespace CowboyCafe.Data

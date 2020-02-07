@@ -1,4 +1,13 @@
-﻿using System;
+﻿/*
+
+* Author: Blake Hachen
+
+* Class name: Angry Chicken
+
+* Purpose: Gives information regarding the Angry Chicken entree.
+
+*/
+using System;
 using System.Collections.Generic;
 
 

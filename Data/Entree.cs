@@ -1,4 +1,13 @@
-﻿using System;
+﻿/*
+
+* Author: Blake Hachen
+
+* Class name: Entree
+
+* Purpose: A base class for other entree classes to inherit from.
+
+*/
+using System;
 using System.Collections.Generic;
 
 namespace CowboyCafe.Data

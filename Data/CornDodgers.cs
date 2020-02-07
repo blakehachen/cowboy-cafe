@@ -1,4 +1,13 @@
-﻿using System;
+﻿/*
+
+* Author: Blake Hachen
+
+* Class name: CornDodgers
+
+* Purpose: Inherits methods from the side base class. This class represents the Corn Dodgers side.
+
+*/
+using System;
 using System.Collections.Generic;
 
 

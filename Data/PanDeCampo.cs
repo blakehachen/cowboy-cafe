@@ -1,4 +1,14 @@
-﻿using System;
+﻿/*
+
+* Author: Blake Hachen
+
+* Class name: PanDeCampo
+
+* Purpose: Inherits methods from the side base class. This class represents the Pan De Campo side.
+
+*/
+
+using System;
 using System.Collections.Generic;
 using System.Text;
 

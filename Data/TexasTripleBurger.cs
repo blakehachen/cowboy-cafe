@@ -1,4 +1,13 @@
-﻿using System;
+﻿/*
+
+* Author: Blake Hachen
+
+* Class name: TexasTripleBurger
+
+* Purpose: Inherits methods from the entree base class. This class represents the Texas Triple Burger entree.
+
+*/
+using System;
 using System.Collections.Generic;
 
 namespace CowboyCafe.Data
