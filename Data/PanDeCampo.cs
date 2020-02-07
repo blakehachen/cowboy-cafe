@@ -1,15 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Text;
 
 namespace CowboyCafe.Data
 {
     /// <summary>
-    /// A class representing the Chili Cheese Fries side
+    /// A class representing the Pan de Campo side
     /// </summary>
-    public class ChiliCheeseFries : Side
+    public class PanDeCampo : Side
     {
         /// <summary>
-        /// The calories of the chili cheese fries based on the size
+        /// The calories of the Pan de Campo depending on the size
         /// </summary>
         public override uint Calories
         {
@@ -18,11 +19,11 @@ namespace CowboyCafe.Data
                 switch (Size)
                 {
                     case Size.Large:
-                        return 610;
+                        return 367;
                     case Size.Medium:
-                        return 524;
+                        return 269;
                     case Size.Small:
-                        return 433;
+                        return 227;
                     default:
                         throw new NotImplementedException();
                 }
@@ -30,7 +31,7 @@ namespace CowboyCafe.Data
         }
 
         /// <summary>
-        /// The price of the chili cheese fries depending on the size
+        /// The price of the Pan de Campo depending on the size
         /// </summary>
         public override double Price
         {
@@ -39,17 +40,15 @@ namespace CowboyCafe.Data
                 switch (Size)
                 {
                     case Size.Large:
-                        return 3.99;
-                    case Size.Medium:
-                        return 2.99;
-                    case Size.Small:
                         return 1.99;
+                    case Size.Medium:
+                        return 1.79;
+                    case Size.Small:
+                        return 1.59;
                     default:
                         throw new NotImplementedException();
                 }
             }
         }
-       
-        }
+    }
 }
-
