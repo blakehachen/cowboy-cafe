@@ -21,12 +21,20 @@
         
         <StackPanel Grid.Column="0">
             <TextBlock TextAlignment="Center">Entrees</TextBlock>
-            <Button Name="AddAngryChickenButton">Angry Chicken</Button>
-            <Button Name="AddCowpokeChiliButton">Cowpoke Chili</Button>
+            <Button Name="AddAngryChickenButton" Click="AddAngryChickenButton_Click">Angry Chicken</Button>
+            <Button Name="AddCowpokeChiliButton" Click="AddCowpokeChiliButton_Click">Cowpoke Chili</Button>
+            <Button Name="AddRustlersRibsButton" Click="AddRustlersRibsButton_Click">Rustler's Ribs</Button>
+            <Button Name="AddPecosPulledPork" Click="AddPecosPulledPorkButton_Click">Pecos Pulled Pork</Button>
+            
         </StackPanel>
 
         <StackPanel Grid.Column="1">
             <TextBlock TextAlignment="Center">Sides</TextBlock>
+        </StackPanel>
+
+        <StackPanel Grid.Column="3">
+            <TextBlock TextAlignment="Center">Order</TextBlock>
+            <ListBox Name="OrderList" Height="100"></ListBox>
         </StackPanel>
     </Grid>
 </UserControl>
