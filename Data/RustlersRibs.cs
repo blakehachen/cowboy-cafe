@@ -51,6 +51,9 @@ namespace CowboyCafe.Data
             }
         }
 
+        /// <summary>
+        /// Readable string representing entree rustler's ribs
+        /// </summary>
         public override string ToString()
         {
             return "Rustler's Ribs";

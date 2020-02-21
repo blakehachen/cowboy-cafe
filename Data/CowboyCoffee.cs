@@ -28,11 +28,17 @@ namespace CowboyCafe.Data
             get { return roomforcream; }
             set { roomforcream = value; }
         }
-        
+
+        private bool decaf = false;
         /// <summary>
         /// If the coffee is decaf
         /// </summary>
-        public bool Decaf { get; set; }
+        public bool Decaf 
+        { 
+            get { return decaf; }
+            set { decaf = value; }
+        
+        }
         
         private bool ice = false;
         /// <summary>
@@ -97,6 +103,27 @@ namespace CowboyCafe.Data
                 if (ice) instructions.Add("Add Ice");
                 if (roomforcream) instructions.Add("Room for Cream");
                 return instructions;
+            }
+        }
+
+        /// <summary>
+        /// Readable string representing drink cowboy coffee
+        /// </summary>
+        public override string ToString()
+        {
+            switch (Size)
+            {
+                case Size.Large:
+                    if (Decaf) return "Large Decaf Cowboy Coffee";
+                    return "Large Cowboy Coffee";
+                case Size.Medium:
+                    if (Decaf) return "Medium Decaf Cowboy Coffee";
+                    return "Medium Cowboy Coffee";
+                case Size.Small:
+                    if (Decaf) return "Small Decaf Cowboy Coffee";
+                    return "Small Cowboy Coffee";
+                default:
+                    throw new NotImplementedException();
             }
         }
 

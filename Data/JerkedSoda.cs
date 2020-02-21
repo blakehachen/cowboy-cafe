@@ -80,9 +80,45 @@ namespace CowboyCafe.Data
             }
         }
 
+        /// <summary>
+        /// Readable string representing drink jerked soda
+        /// </summary>
         public override string ToString()
         {
-            return "Jerked Soda";
+            string expected;
+            switch (Flavor)
+            {
+                case SodaFlavor.CreamSoda:
+                    expected = "Cream Soda";
+                    break;
+                case SodaFlavor.BirchBeer:
+                    expected = "Birch Beer";
+                    break;
+                case SodaFlavor.OrangeSoda:
+                    expected = "Orange Soda";
+                    break;
+                case SodaFlavor.RootBeer:
+                    expected = "Root Beer";
+                    break;
+                case SodaFlavor.Sarsparilla:
+                    expected = "Sarsparilla";
+                    break;
+                default:
+                    throw new NotImplementedException();
+            }
+
+            switch (Size)
+            {
+                case (Size.Large):
+                    return $"Large {expected} Jerked Soda";
+                case (Size.Medium):
+                    return $"Medium {expected} Jerked Soda";
+                case (Size.Small):
+                    return $"Small {expected} Jerked Soda";
+                default:
+                    throw new NotImplementedException();
+            }
+            
         }
     }
 }

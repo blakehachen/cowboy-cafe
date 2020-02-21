@@ -60,5 +60,23 @@ namespace CowboyCafe.Data
                 }
             }
         }
+
+        /// <summary>
+        /// Readable string representing side baked Beans
+        /// </summary>
+        public override string ToString()
+        {
+            switch (Size)
+            {
+                case Size.Large:
+                    return "Large Baked Beans";
+                case Size.Medium:
+                    return "Medium Baked Beans";
+                case Size.Small:
+                    return "Small Baked Beans";
+                default:
+                    throw new NotImplementedException();
+            }
+        }
     }
 }

@@ -100,6 +100,9 @@ namespace CowboyCafe.Data
             }
         }
 
+        /// <summary>
+        /// Readable string representing entree cowpoke chili
+        /// </summary>
         public override string ToString()
         {
             return "Cowpoke Chili";
