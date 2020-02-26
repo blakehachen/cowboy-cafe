@@ -11,16 +11,10 @@ namespace CowboyCafe.Data
 
         private List<IOrderItem> items = new List<IOrderItem>();
 
-        public IEnumerable<IOrderItem> Items
-        {
-            get
-            {
-                return items.ToArray();
-            }
+        public IEnumerable<IOrderItem> Items => throw new NotImplementedException();
+      
 
-        }
-
-        public double Subtotal { get; }
+        public double Subtotal => 0;
 
         public uint OrderNumber { get; }
 

@@ -8,8 +8,8 @@ namespace CowboyCafe.Data
     {
         public interface IOrderItem
         {
-            public double Price { get; }
-            public IEnumerable<string> SpecialInstructions { get; }
+            double Price { get; }
+            List<string> SpecialInstruction { get; }
         }
     }
 }
