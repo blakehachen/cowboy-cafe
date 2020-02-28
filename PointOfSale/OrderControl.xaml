@@ -51,7 +51,6 @@
             <Button Name="AddWaterButton" Click="AddWaterButton_Click">Water</Button-->
         </StackPanel>
         <StackPanel Grid.Column="3">
-            <TextBlock TextAlignment="Center">Order</TextBlock>
             <local:OrderSummaryControl Height="740"></local:OrderSummaryControl>
         </StackPanel>
     </Grid>

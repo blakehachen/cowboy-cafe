@@ -22,6 +22,12 @@ namespace PointOfSale
         public OrderSummaryControl()
         {
             InitializeComponent();
+            OrderList.Items.Add(new CowpokeChili());
+            CowpokeChili cpChili = new CowpokeChili();
+            foreach(string orderItem in cpChili.SpecialInstructions)
+            {
+                OrderList.Items.Add(orderItem);
+            }
         }
 
 
