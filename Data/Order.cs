@@ -7,16 +7,41 @@ namespace CowboyCafe.Data
 {
     public class Order : INotifyPropertyChanged
     {
-        private uint lastOrderNumber;
+        private static uint lastOrderNumber;
 
         private List<IOrderItem> items = new List<IOrderItem>();
 
-        public IEnumerable<IOrderItem> Items => throw new NotImplementedException();
+        public IEnumerable<IOrderItem> Items
+        {
+            get
+            {
+                return items;
+            }
+        }
+        
       
 
-        public double Subtotal => 0;
+        public double Subtotal
+        {
+            get
+            {
+                double total = 0.0;
+                foreach(IOrderItem item in items)
+                {
+                    total += item.Price;
+                }
+                return total;
+            }
+        }
 
-        public uint OrderNumber { get; }
+        public uint OrderNumber
+        {
+            get
+            {
+                lastOrderNumber++;
+                return lastOrderNumber;
+            }
+        }
 
         public event PropertyChangedEventHandler PropertyChanged;
 
@@ -24,12 +49,14 @@ namespace CowboyCafe.Data
         {
             items.Add(item);
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Items"));
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Price"));
         }
 
         public void Remove(IOrderItem item)
         {
             items.Remove(item);
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Items"));
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Price"));
         }
     }
 }

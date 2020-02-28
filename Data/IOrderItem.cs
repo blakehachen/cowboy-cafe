@@ -6,10 +6,7 @@ namespace CowboyCafe.Data
 {
     public interface IOrderItem
     {
-        public interface IOrderItem
-        {
-            double Price { get; }
-            List<string> SpecialInstruction { get; }
-        }
+        double Price { get; }
+        List<string> SpecialInstructions { get; }
     }
 }

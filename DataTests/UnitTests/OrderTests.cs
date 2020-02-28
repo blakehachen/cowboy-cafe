@@ -31,7 +31,7 @@ namespace CowboyCafe.DataTests.UnitTests
         {
             var order = new Order();
             var item = new MockOrderItem();
-            order.Add(item);
+            order.Remove(item);
             Assert.DoesNotContain(item, order.Items);
         }
 
@@ -101,6 +101,19 @@ namespace CowboyCafe.DataTests.UnitTests
             {
                 order.Remove(item);
             });
+        }
+
+        [Fact]
+        public void LastOrderNumberShouldBeLessThanOrderNumber()
+        {
+            var order1 = new Order();
+            var order2 = new Order();
+            var order3 = new Order();
+
+            Assert.Equal(order1.OrderNumber,(uint) 1);
+            Assert.Equal(order2.OrderNumber, (uint)2);
+            Assert.Equal(order3.OrderNumber, (uint)3);
+            
         }
 
         
