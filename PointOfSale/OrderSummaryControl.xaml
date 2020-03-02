@@ -5,6 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:PointOfSale"
              mc:Ignorable="d" 
+             DataContext="{Binding Source=Order}"
              d:DesignHeight="600" d:DesignWidth="200">
     <UserControl.Resources>
         <Style TargetType="ListBox">
@@ -24,12 +25,14 @@
                         </Grid.ColumnDefinitions>
                         <TextBlock Text="{Binding}"/>
                         <TextBlock HorizontalAlignment="Stretch" Grid.Column="1" Text="{Binding Path=Price,StringFormat=c}"/>
-
+                        <TextBlock Text="{Binding Path=Subtotal,StringFormat=c}"/>
                     </Grid>
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>
-        <TextBlock TextAlignment="Left" Text="{Binding Path=Subtotal,StringFormat=c}"></TextBlock>
+        
+        <TextBlock Text="{Binding Path=Subtotal,StringFormat=c}"></TextBlock>
     </StackPanel>
+
     
 </UserControl>

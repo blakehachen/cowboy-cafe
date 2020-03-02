@@ -17,7 +17,7 @@ namespace CowboyCafe.Data
     /// <summary>
     /// Class representing the generic drink properties
     /// </summary>
-    public abstract class Drink
+    public abstract class Drink : IOrderItem
     {
         private bool ice = true;
         /// <summary>

@@ -7,6 +7,6 @@
         mc:Ignorable="d"
         Title="Cowboy Cafe Point Of Sale" TextBlock.TextAlignment="Center" Height="750" Width="1000">
     <Grid>
-        <local:OrderControl></local:OrderControl>
+        <local:OrderControl Loaded="OrderControl_Loaded"></local:OrderControl>
     </Grid>
 </Window>
