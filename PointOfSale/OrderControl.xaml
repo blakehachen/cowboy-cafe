@@ -30,7 +30,7 @@
         <StackPanel Orientation="Horizontal" Grid.Column="0" Grid.Row="0" >
             <Button  Name="ItemSelectionButton">Item Selection</Button>
             <Button  Name ="CancelOrderButton" Click="CancelOrderButton_Click">Cancel Order</Button>
-            <Button  Name="CompleteOrderButton">Complete Order</Button>
+            <Button  Name="CompleteOrderButton" Click="CompleteOrderButton_Click">Complete Order</Button>
         </StackPanel>
         <StackPanel Grid.Column="0" Grid.Row="1">
             <local:MenuItemSelectionControl Height="650"></local:MenuItemSelectionControl>

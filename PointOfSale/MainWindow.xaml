@@ -5,8 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PointOfSale"
         mc:Ignorable="d"
-        Title="Cowboy Cafe Point Of Sale" TextBlock.TextAlignment="Center" Height="750" Width="1000">
-    <Grid>
-        <local:OrderControl Loaded="OrderControl_Loaded"></local:OrderControl>
-    </Grid>
+        Title="Cowboy Cafe Point Of Sale" TextBlock.TextAlignment="Center" Height="800" Width="1100">
+    
+        <local:OrderControl />
+    
 </Window>

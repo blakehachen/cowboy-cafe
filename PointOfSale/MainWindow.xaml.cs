@@ -24,13 +24,10 @@ namespace PointOfSale
         public MainWindow()
         {
             InitializeComponent();
-            DataContext = new Order();
-            
+            var order = new Order();
+            this.DataContext = order;
         }
 
-        private void OrderControl_Loaded(object sender, RoutedEventArgs e)
-        {
-
-        }
+        
     }
 }

@@ -34,11 +34,18 @@ namespace PointOfSale
         public OrderControl()
         {
             InitializeComponent();
-            
 
         }
 
         private void CancelOrderButton_Click(object sender, RoutedEventArgs e)
+        {
+            if(DataContext is Order)
+            {
+                DataContext = new Order();
+            }
+        }
+
+        private void CompleteOrderButton_Click(object sender, RoutedEventArgs e)
         {
             if(DataContext is Order)
             {

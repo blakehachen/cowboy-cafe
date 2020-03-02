@@ -25,14 +25,13 @@ namespace PointOfSale
             InitializeComponent();
             
 
+
         }
 
 
-        /// <summary>
-        /// Adds Cowpoke Chili to the order list
-        /// </summary>
-        
 
-        
+
+
+
     }
 }
