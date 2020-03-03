@@ -37,6 +37,9 @@ namespace PointOfSale
 
         }
 
+        /// <summary>
+        /// Cancels the order by setting the data context of the databinding to a new order instance.
+        /// </summary>
         private void CancelOrderButton_Click(object sender, RoutedEventArgs e)
         {
             if(DataContext is Order)
@@ -45,6 +48,9 @@ namespace PointOfSale
             }
         }
 
+        /// <summary>
+        /// Cancels the order by setting the data context of the databinding to a new order instance. Further implementation may be needed.
+        /// </summary>
         private void CompleteOrderButton_Click(object sender, RoutedEventArgs e)
         {
             if(DataContext is Order)

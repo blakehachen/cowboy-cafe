@@ -1,4 +1,13 @@
-﻿using System;
+﻿/*
+
+* Author: Blake Hachen
+
+* Class name: MenuItemSelectionControl
+
+* Purpose: This creates a base class that side classes can inherit methods from.
+
+*/
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Windows;
@@ -19,7 +28,9 @@ namespace PointOfSale
     /// </summary>
     public partial class MenuItemSelectionControl : UserControl
     {
-        
+        /// <summary>
+        /// Initializes MenuItemSelection window
+        /// </summary>
         public MenuItemSelectionControl()
         {
             InitializeComponent();
@@ -27,7 +38,10 @@ namespace PointOfSale
             
         }
 
-        protected void AddAngryChickenButton_Click(object sender, RoutedEventArgs e)
+        /// <summary>
+        /// Adds Angry Chicken to the order
+        /// </summary>
+        private void AddAngryChickenButton_Click(object sender, RoutedEventArgs e)
         {
             if(DataContext is Order data)
             {
@@ -35,6 +49,9 @@ namespace PointOfSale
             }
         }
 
+        /// <summary>
+        /// Adds Cowpoke Chili to the order
+        /// </summary>
         private void AddCowpokeChiliButton_Click(object sender, RoutedEventArgs e)
         {
             if (DataContext is Order data)
@@ -43,6 +60,9 @@ namespace PointOfSale
             }
         }
 
+        /// <summary>
+        /// Adds Rustler's Ribs to the order
+        /// </summary>
         private void AddRustlersRibsButton_Click(object sender, RoutedEventArgs e)
         {
             if (DataContext is Order data)
@@ -51,6 +71,9 @@ namespace PointOfSale
             }
         }
 
+        /// <summary>
+        /// Adds Pecos Pulled Pork to the order
+        /// </summary>
         private void AddPecosPulledPorkButton_Click(object sender, RoutedEventArgs e)
         {
             if (DataContext is Order data)
@@ -59,6 +82,9 @@ namespace PointOfSale
             }
         }
 
+        /// <summary>
+        /// Adds Trail Bruger to the order
+        /// </summary>
         private void AddTrailBurgerButton_Click(object sender, RoutedEventArgs e)
         {
             if (DataContext is Order data)
@@ -67,6 +93,9 @@ namespace PointOfSale
             }
         }
 
+        /// <summary>
+        /// Adds Dakota Double Burger to the order
+        /// </summary>
         private void AddDakotaDoubleBurgerButton_Click(object sender, RoutedEventArgs e)
         {
             if (DataContext is Order data)
@@ -75,6 +104,9 @@ namespace PointOfSale
             }
         }
 
+        /// <summary>
+        /// Adds Texas Triple Bruger to the order
+        /// </summary>
         private void AddTexasTripleBurgerButton_Click(object sender, RoutedEventArgs e)
         {
             if (DataContext is Order data)
@@ -83,6 +115,9 @@ namespace PointOfSale
             }
         }
 
+        /// <summary>
+        /// Adds Chili Cheese Fries to the order
+        /// </summary>
         private void AddChiliCheeseFriesButton_Click(object sender, RoutedEventArgs e)
         {
             if (DataContext is Order data)
@@ -91,6 +126,9 @@ namespace PointOfSale
             }
         }
 
+        /// <summary>
+        /// Adds Corn Dodgers to the order
+        /// </summary>
         private void AddCornDodgersButton_Click(object sender, RoutedEventArgs e)
         {
             if (DataContext is Order data)
@@ -99,6 +137,9 @@ namespace PointOfSale
             }
         }
 
+        /// <summary>
+        /// Adds Pan De Campo to the order
+        /// </summary>
         private void AddPanDeCampoButton_Click(object sender, RoutedEventArgs e)
         {
             if (DataContext is Order data)
@@ -107,6 +148,9 @@ namespace PointOfSale
             }
         }
 
+        /// <summary>
+        /// Adds Baked Beans to the order
+        /// </summary>
         private void AddBakedBeansButton_Click(object sender, RoutedEventArgs e)
         {
             if (DataContext is Order data)
@@ -115,6 +159,9 @@ namespace PointOfSale
             }
         }
 
+        /// <summary>
+        /// Adds Jerked Soda to the order
+        /// </summary>
         private void AddJerkedSodaButton_Click(object sender, RoutedEventArgs e)
         {
             if (DataContext is Order data)
@@ -123,6 +170,9 @@ namespace PointOfSale
             }
         }
 
+        /// <summary>
+        /// Adds Texas Tea to the order
+        /// </summary>
         private void AddTexasTeaButton_Click(object sender, RoutedEventArgs e)
         {
             if (DataContext is Order data)
@@ -131,6 +181,9 @@ namespace PointOfSale
             }
         }
 
+        /// <summary>
+        /// Adds Cowboy Coffee to the order
+        /// </summary>
         private void AddCowboyCoffeeButton_Click(object sender, RoutedEventArgs e)
         {
             if (DataContext is Order data)
@@ -139,6 +192,9 @@ namespace PointOfSale
             }
         }
 
+        /// <summary>
+        /// Adds Water to the order
+        /// </summary>
         private void AddWaterButton_Click(object sender, RoutedEventArgs e)
         {
             if (DataContext is Order data)
