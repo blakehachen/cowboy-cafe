@@ -39,5 +39,14 @@
         <StackPanel Grid.Column="1" Grid.Row="1" Width="200">
             <local:OrderSummaryControl Height="740"></local:OrderSummaryControl>
         </StackPanel>
+        
+        
+        <Border Name="Container" Grid.Row="1">
+           <local:MenuItemSelectionControl/>
+        </Border>
+        
     </Grid>
+    
+    
+    
 </UserControl>

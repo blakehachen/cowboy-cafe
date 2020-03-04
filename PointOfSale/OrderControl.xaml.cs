@@ -58,5 +58,10 @@ namespace PointOfSale
                 DataContext = new Order();
             }
         }
+
+        public void SwapScreen(FrameworkElement element)
+        {
+            Container.Child = element;
+        }
     }
 }
