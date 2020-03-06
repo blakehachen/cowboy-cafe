@@ -10,6 +10,7 @@
 
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 
 
 namespace CowboyCafe.Data
@@ -17,16 +18,23 @@ namespace CowboyCafe.Data
     /// <summary>
     /// Class representing the generic drink properties
     /// </summary>
-    public abstract class Drink : IOrderItem
+    public abstract class Drink : IOrderItem, INotifyPropertyChanged
     {
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
         private bool ice = true;
         /// <summary>
         /// If the drink has ice
         /// </summary>
-        public bool Ice
+        public virtual bool Ice 
         {
             get { return ice; }
-            set { ice = value; }
+            set 
+            { 
+                ice = value;
+                NotifyIfPropertyChanges("Ice");
+            }
         }
 
         private Size size = Size.Small;
@@ -53,5 +61,11 @@ namespace CowboyCafe.Data
         /// Special instructions for preparing the drink
         /// </summary>
         public abstract List<string> SpecialInstructions { get; }
+
+        protected void NotifyIfPropertyChanges(string property)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(property));
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
+        }
     }
 }

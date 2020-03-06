@@ -47,10 +47,7 @@ namespace PointOfSale
         /// </summary>
         private void AddAngryChickenButton_Click(object sender, RoutedEventArgs e)
         {
-            if(DataContext is Order data)
-            {
-               data.Add(new AngryChicken());
-            }
+            AddAndCustomizeItem(new AngryChicken(), new AngryChickenCustomization());
         }
 
         /// <summary>
@@ -58,10 +55,7 @@ namespace PointOfSale
         /// </summary>
         private void AddCowpokeChiliButton_Click(object sender, RoutedEventArgs e)
         {
-            if (DataContext is Order data)
-            {
-                data.Add(new CowpokeChili());
-            }
+            AddAndCustomizeItem(new CowpokeChili(), new CowpokeChiliCustomization());
         }
 
         /// <summary>
@@ -69,10 +63,7 @@ namespace PointOfSale
         /// </summary>
         private void AddRustlersRibsButton_Click(object sender, RoutedEventArgs e)
         {
-            if (DataContext is Order data)
-            {
-                data.Add(new RustlersRibs());
-            }
+            AddAndCustomizeItem(new RustlersRibs(), new RustlersRibsCustomization());
         }
 
         /// <summary>
@@ -80,10 +71,7 @@ namespace PointOfSale
         /// </summary>
         private void AddPecosPulledPorkButton_Click(object sender, RoutedEventArgs e)
         {
-            if (DataContext is Order data)
-            {
-                data.Add(new PecosPulledPork());
-            }
+            AddAndCustomizeItem(new PecosPulledPork(), new PecosPulledPorkCustomization());
         }
 
         /// <summary>
@@ -91,10 +79,7 @@ namespace PointOfSale
         /// </summary>
         private void AddTrailBurgerButton_Click(object sender, RoutedEventArgs e)
         {
-            if (DataContext is Order data)
-            {
-                data.Add(new TrailBurger());
-            }
+            AddAndCustomizeItem(new TrailBurger(), new TrailBurgerCustomization());
         }
 
         /// <summary>
@@ -102,10 +87,7 @@ namespace PointOfSale
         /// </summary>
         private void AddDakotaDoubleBurgerButton_Click(object sender, RoutedEventArgs e)
         {
-            if (DataContext is Order data)
-            {
-                data.Add(new DakotaDoubleBurger());
-            }
+            AddAndCustomizeItem(new DakotaDoubleBurger(), new DakotaDoubleBurgerCustomization());
         }
 
         /// <summary>
@@ -113,10 +95,7 @@ namespace PointOfSale
         /// </summary>
         private void AddTexasTripleBurgerButton_Click(object sender, RoutedEventArgs e)
         {
-            if (DataContext is Order data)
-            {
-                data.Add(new TexasTripleBurger());
-            }
+            AddAndCustomizeItem(new TexasTripleBurger(), new TexasTripleBurgerCustomization());
         }
 
         /// <summary>
@@ -124,10 +103,7 @@ namespace PointOfSale
         /// </summary>
         private void AddChiliCheeseFriesButton_Click(object sender, RoutedEventArgs e)
         {
-            if (DataContext is Order data)
-            {
-                data.Add(new ChiliCheeseFries());
-            }
+            AddAndCustomizeItem(new ChiliCheeseFries(), new ChiliCheeseFriesCustomization());
         }
 
         /// <summary>
@@ -135,10 +111,7 @@ namespace PointOfSale
         /// </summary>
         private void AddCornDodgersButton_Click(object sender, RoutedEventArgs e)
         {
-            if (DataContext is Order data)
-            {
-                data.Add(new CowpokeChili());
-            }
+            AddAndCustomizeItem(new CornDodgers(), new CornDodgersCustomization());
         }
 
         /// <summary>
@@ -146,10 +119,7 @@ namespace PointOfSale
         /// </summary>
         private void AddPanDeCampoButton_Click(object sender, RoutedEventArgs e)
         {
-            if (DataContext is Order data)
-            {
-                data.Add(new PanDeCampo());
-            }
+            AddAndCustomizeItem(new PanDeCampo(), new PanDeCampoCustomization());
         }
 
         /// <summary>
@@ -157,10 +127,7 @@ namespace PointOfSale
         /// </summary>
         private void AddBakedBeansButton_Click(object sender, RoutedEventArgs e)
         {
-            if (DataContext is Order data)
-            {
-                data.Add(new BakedBeans());
-            }
+            AddAndCustomizeItem(new BakedBeans(), new BakedBeansCustomization());
         }
 
         /// <summary>
@@ -168,10 +135,7 @@ namespace PointOfSale
         /// </summary>
         private void AddJerkedSodaButton_Click(object sender, RoutedEventArgs e)
         {
-            if (DataContext is Order data)
-            {
-                data.Add(new JerkedSoda());
-            }
+            AddAndCustomizeItem(new JerkedSoda(), new JerkedSodaCustomization());
         }
 
         /// <summary>
@@ -179,10 +143,7 @@ namespace PointOfSale
         /// </summary>
         private void AddTexasTeaButton_Click(object sender, RoutedEventArgs e)
         {
-            if (DataContext is Order data)
-            {
-                data.Add(new TexasTea());
-            }
+            AddAndCustomizeItem(new TexasTea(), new TexasTeaCustomization());
         }
 
         /// <summary>
@@ -190,10 +151,7 @@ namespace PointOfSale
         /// </summary>
         private void AddCowboyCoffeeButton_Click(object sender, RoutedEventArgs e)
         {
-            if (DataContext is Order data)
-            {
-                data.Add(new CowboyCoffee());
-            }
+            AddAndCustomizeItem(new CowboyCoffee(), new CowboyCoffeeCustomization());
         }
 
         /// <summary>
@@ -201,34 +159,19 @@ namespace PointOfSale
         /// </summary>
         private void AddWaterButton_Click(object sender, RoutedEventArgs e)
         {
+            AddAndCustomizeItem(new Water(), new WaterCustomization());
+        }
+
+        private void AddAndCustomizeItem(IOrderItem item, FrameworkElement screen)
+        {
+            var orderControl = this.FindAncestor<OrderControl>();
             if (DataContext is Order data)
             {
-                data.Add(new Water());
+                data.Add(item);
+                screen.DataContext = item;
+                orderControl?.SwapScreen(screen);
             }
         }
 
-        void OnAddOrderItemButtonClicked(object sender, RoutedEventArgs e)
-        {
-            
-            var orderControl = this.FindAncestor<OrderControl>();
-
-            if(DataContext is Order order)
-            {
-                if(sender is Button button)
-                {
-                    switch (button.Name)
-                    {
-                        case "AddCowpokeChiliButton":
-                            var item = new CowpokeChili();
-                            var screen = new CowpokeChiliCustomization();
-                            screen.DataContext = item;
-                            order.Add(item);
-                            orderControl?.SwapScreen(screen);
-                            break;
-                            
-                    }
-                }
-            }
-        }
     }
 }

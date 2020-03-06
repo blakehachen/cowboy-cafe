@@ -9,6 +9,7 @@
 */
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 
 
 namespace CowboyCafe.Data
@@ -16,8 +17,9 @@ namespace CowboyCafe.Data
     /// <summary>
     /// A class representing the Angry Chicken entree
     /// </summary>
-    public class AngryChicken : Entree
+    public class AngryChicken : Entree, INotifyPropertyChanged
     {
+
         private bool bread = true;
         /// <summary>
         /// If the sandwich has bread
@@ -25,7 +27,11 @@ namespace CowboyCafe.Data
         public bool Bread
         {
             get { return bread; }
-            set { bread = value; }
+            set
+            {
+                bread = value;
+                NotifyIfPropertyChanges("Bread");
+            }
         }
 
         private bool pickle = true;
@@ -35,7 +41,11 @@ namespace CowboyCafe.Data
         public bool Pickle
         {
             get { return pickle; }
-            set { pickle = value; }
+            set 
+            { 
+                pickle = value;
+                NotifyIfPropertyChanges("Pickle");
+            }
         }
         
         /// <summary>

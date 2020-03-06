@@ -26,7 +26,11 @@ namespace CowboyCafe.Data
         public bool RoomForCream 
         {
             get { return roomforcream; }
-            set { roomforcream = value; }
+            set 
+            { 
+                roomforcream = value;
+                NotifyIfPropertyChanges("RoomForCream");
+            }
         }
 
         private bool decaf = false;

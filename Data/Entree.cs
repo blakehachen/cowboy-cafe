@@ -9,14 +9,17 @@
 */
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 
 namespace CowboyCafe.Data
 {
     /// <summary>
     /// A base class representing an entree
     /// </summary>
-    public abstract class Entree : IOrderItem
+    public abstract class Entree : IOrderItem, INotifyPropertyChanged
     {
+        public event PropertyChangedEventHandler PropertyChanged;
+        
         /// <summary>
         /// Gets the price of an entree
         /// </summary>
@@ -31,6 +34,12 @@ namespace CowboyCafe.Data
         /// Gets the Special Instructions of an entree
         /// </summary>
         public abstract List<string> SpecialInstructions { get; }
+
+        protected void NotifyIfPropertyChanges(string property)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(property));
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
+        }
 
     }
 }

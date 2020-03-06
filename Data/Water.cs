@@ -10,11 +10,12 @@
 
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 
 
 namespace CowboyCafe.Data
 {
-    public class Water : Drink
+    public class Water : Drink, INotifyPropertyChanged
     {
         private bool lemon = false;
         /// <summary>
@@ -23,7 +24,11 @@ namespace CowboyCafe.Data
         public bool Lemon
         {
             get { return lemon; }
-            set { lemon = value; }
+            set
+            {
+                lemon = value;
+                NotifyIfPropertyChanges("Lemon");
+            }
         }
 
         /// <summary>

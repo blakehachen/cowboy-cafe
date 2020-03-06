@@ -15,7 +15,7 @@
         <StackPanel Grid.Column="0">
             <TextBlock TextAlignment="Center">Entrees</TextBlock>
             <Button x:Name="AddAngryChickenButton" Click="AddAngryChickenButton_Click">Angry Chicken</Button>
-            <Button Name="AddCowpokeChiliButton" Click="OnAddOrderItemButtonClicked">Cowpoke Chili</Button>
+            <Button Name="AddCowpokeChiliButton" Click="AddCowpokeChiliButton_Click">Cowpoke Chili</Button>
             <Button Name="AddRustlersRibsButton" Click="AddRustlersRibsButton_Click">Rustler's Ribs</Button>
             <Button Name="AddPecosPulledPorkButton" Click="AddPecosPulledPorkButton_Click">Pecos Pulled Pork</Button>
             <Button Name="AddTrailBurgerButton" Click="AddTrailBurgerButton_Click">Trail Burger</Button>

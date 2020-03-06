@@ -7,10 +7,23 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="600">
     <StackPanel>
-        <TextBlock FontSize="40">Customize this Chili!</TextBlock>
+        <TextBlock FontSize="40">Customize Cowpoke Chili</TextBlock>
         <StackPanel Orientation="Horizontal">
             <CheckBox IsChecked="{Binding Path=Cheese}"/>
+            
             <TextBlock Text="Cheese"/>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal">
+            <CheckBox IsChecked="{Binding Path=SourCream}"/>
+            <TextBlock Text="Sour Cream"/>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal">
+            <CheckBox IsChecked="{Binding Path=GreenOnions}"/>
+            <TextBlock Text="Green Onions"/>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal">
+            <CheckBox IsChecked="{Binding Path=TortillaStrips}"/>
+            <TextBlock Text="Tortilla Strips"/>
         </StackPanel>
     </StackPanel>
 </UserControl>
