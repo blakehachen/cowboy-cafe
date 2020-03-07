@@ -162,6 +162,9 @@ namespace PointOfSale
             AddAndCustomizeItem(new Water(), new WaterCustomization());
         }
 
+        /// <summary>
+        /// Adds order item to OrderSummaryControl and swaps the screen from the MenuItemSelectionControl to a customization screen to edit instructions for preparing the order
+        /// </summary>
         private void AddAndCustomizeItem(IOrderItem item, FrameworkElement screen)
         {
             var orderControl = this.FindAncestor<OrderControl>();

@@ -76,7 +76,7 @@ namespace CowboyCafe.Data
         {
             items.Add(item);
             
-            //remove later
+            
             if (item is INotifyPropertyChanged pcitem) {
                 pcitem.PropertyChanged += OnItemChanged;
             }
@@ -94,7 +94,7 @@ namespace CowboyCafe.Data
         {
             items.Remove(item);
             
-            //remove later
+           
             if (item is INotifyPropertyChanged pcitem)
             {
                 pcitem.PropertyChanged -= OnItemChanged;
@@ -105,6 +105,9 @@ namespace CowboyCafe.Data
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Subtotal"));
         }
 
+        /// <summary>
+        /// This method will be used to check and see if the price property is changed then it will change the subtotal as needed.
+        /// </summary>
         private void OnItemChanged(object sender, PropertyChangedEventArgs e)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Items"));

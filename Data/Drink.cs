@@ -21,6 +21,9 @@ namespace CowboyCafe.Data
     public abstract class Drink : IOrderItem, INotifyPropertyChanged
     {
 
+        /// <summary>
+        /// Event handler used to check if property is changed
+        /// </summary>
         public event PropertyChangedEventHandler PropertyChanged;
 
         private bool ice = true;
@@ -62,6 +65,9 @@ namespace CowboyCafe.Data
         /// </summary>
         public abstract List<string> SpecialInstructions { get; }
 
+        /// <summary>
+        /// This method will be used to check a string that correlates to the properties of the order items and change it accordingly
+        /// </summary>
         protected void NotifyIfPropertyChanges(string property)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(property));

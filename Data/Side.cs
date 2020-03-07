@@ -9,6 +9,7 @@
 */
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 
 
 namespace CowboyCafe.Data
@@ -16,8 +17,13 @@ namespace CowboyCafe.Data
     /// <summary>
     /// A base class representing a side
     /// </summary>
-    public abstract class Side : IOrderItem
+    public abstract class Side : IOrderItem, INotifyPropertyChanged
     {
+        /// <summary>
+        /// Event handler used to check if property is changed
+        /// </summary>
+        public event PropertyChangedEventHandler PropertyChanged;
+        
         /// <summary>
         /// Gets the size of the entree
         /// </summary>
@@ -40,6 +46,15 @@ namespace CowboyCafe.Data
                 var instructions = new List<string>();
                 return instructions;
             }
+        }
+
+        /// <summary>
+        /// This method will be used to check a string that correlates to the properties of the order items and change it accordingly
+        /// </summary>
+        protected void NotifyIfPropertyChanges(string property)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(property));
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
         }
     }
 }

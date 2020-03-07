@@ -59,11 +59,17 @@ namespace PointOfSale
             }
         }
 
+        /// <summary>
+        /// This will look for the customization screen that is within the parameter and the container will change to the customization screen
+        /// </summary>
         public void SwapScreen(FrameworkElement element)
         {
             Container.Child = element;
         }
 
+        /// <summary>
+        /// When "Item Selection" is clicked it will generate a new instance of a menu item control returning the user to the main interface.
+        /// </summary>
         private void ItemSelectionButton_Click(object sender, RoutedEventArgs e)
         {
             Container.Child = new MenuItemSelectionControl();
