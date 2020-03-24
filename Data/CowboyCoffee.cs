@@ -40,7 +40,11 @@ namespace CowboyCafe.Data
         public bool Decaf 
         { 
             get { return decaf; }
-            set { decaf = value; }
+            set 
+            { 
+                decaf = value;
+                NotifyIfPropertyChanges("Decaf");
+            }
         
         }
         
@@ -51,7 +55,11 @@ namespace CowboyCafe.Data
         public bool Ice
         {
             get { return ice; }
-            set { ice = value; }
+            set 
+            { 
+                ice = value;
+                NotifyIfPropertyChanges("Ice");
+            }
         }
 
         /// <summary>

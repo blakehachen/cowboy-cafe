@@ -23,11 +23,20 @@ namespace CowboyCafe.Data
         /// Event handler used to check if property is changed
         /// </summary>
         public event PropertyChangedEventHandler PropertyChanged;
-        
+
+        private Size size = Size.Small;
         /// <summary>
         /// Gets the size of the entree
         /// </summary>
-        public virtual Size Size { get; set; }
+        public virtual Size Size
+        {
+            get { return size; }
+            set
+            {
+                size = value;
+                NotifyIfPropertyChanges("Size");
+            }
+        }
 
         /// <summary>
         /// Gets the price of the side

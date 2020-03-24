@@ -47,7 +47,11 @@ namespace CowboyCafe.Data
         public virtual Size Size
         {
             get { return size; }
-            set { size = value; }
+            set
+            {
+                size = value;
+                NotifyIfPropertyChanges("Size");
+            }
         }
         
         /// <summary>
@@ -72,6 +76,8 @@ namespace CowboyCafe.Data
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(property));
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Size"));
+
         }
     }
 }

@@ -19,11 +19,23 @@ namespace CowboyCafe.Data
     /// </summary>
     public class JerkedSoda : Drink
     {
-        
+
+        private SodaFlavor flavor = SodaFlavor.CreamSoda;
         /// <summary>
         /// The flavor of the soda
         /// </summary>
-        public SodaFlavor Flavor { get; set; }
+        public SodaFlavor Flavor {
+            get
+            {
+                
+                return flavor;
+            }
+            set
+            {
+                flavor = value;
+                NotifyIfPropertyChanges("Flavor");
+            }
+        }
 
         /// <summary>
         /// The price of the soda
@@ -88,19 +100,19 @@ namespace CowboyCafe.Data
             string expected;
             switch (Flavor)
             {
-                case SodaFlavor.CreamSoda:
+                case (SodaFlavor.CreamSoda):
                     expected = "Cream Soda";
                     break;
-                case SodaFlavor.BirchBeer:
+                case (SodaFlavor.BirchBeer):
                     expected = "Birch Beer";
                     break;
-                case SodaFlavor.OrangeSoda:
+                case (SodaFlavor.OrangeSoda):
                     expected = "Orange Soda";
                     break;
-                case SodaFlavor.RootBeer:
+                case (SodaFlavor.RootBeer):
                     expected = "Root Beer";
                     break;
-                case SodaFlavor.Sarsparilla:
+                case (SodaFlavor.Sarsparilla):
                     expected = "Sarsparilla";
                     break;
                 default:

@@ -25,7 +25,11 @@ namespace CowboyCafe.Data
         public bool Sweet
         {
             get { return sweet; }
-            set { sweet = value; }
+            set 
+            { 
+                sweet = value;
+                NotifyIfPropertyChanges("Sweet");
+            }
         }
 
         private bool lemon = false;
