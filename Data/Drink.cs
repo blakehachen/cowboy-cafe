@@ -21,6 +21,8 @@ namespace CowboyCafe.Data
     public abstract class Drink : IOrderItem, INotifyPropertyChanged
     {
 
+        public object CustomizationScreen { get; set; }
+        
         /// <summary>
         /// Event handler used to check if property is changed
         /// </summary>
@@ -51,6 +53,8 @@ namespace CowboyCafe.Data
             {
                 size = value;
                 NotifyIfPropertyChanges("Size");
+                NotifyIfPropertyChanges("Price");
+                NotifyIfPropertyChanges("Calories");
             }
         }
         
@@ -76,7 +80,6 @@ namespace CowboyCafe.Data
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(property));
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Size"));
 
         }
     }

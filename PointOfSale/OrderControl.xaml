@@ -20,7 +20,7 @@
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
-            <ColumnDefinition Width="270"/>
+            <ColumnDefinition Width="300"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="100"/>
@@ -37,8 +37,8 @@
         </-->
 
         <StackPanel Grid.Column="0" Grid.Row="0" Width="250"/>
-        <StackPanel Grid.Column="1" Grid.Row="1" Width="250">
-            <local:OrderSummaryControl Height="740"></local:OrderSummaryControl>
+        <StackPanel Grid.Column="1" Grid.Row="1" Width="300">
+            <local:OrderSummaryControl Height="1000"></local:OrderSummaryControl>
         </StackPanel>
         
         

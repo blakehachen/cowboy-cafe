@@ -14,6 +14,8 @@ namespace CowboyCafe.DataTests.UnitTests
             public double Price { get; set; }
 
             public List<string> SpecialInstructions { get; set; } = new List<string>();
+
+            object IOrderItem.CustomizationScreen { get; set; }
         }
         
         [Fact]

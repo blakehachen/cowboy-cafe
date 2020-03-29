@@ -19,6 +19,9 @@ namespace CowboyCafe.Data
     /// </summary>
     public abstract class Side : IOrderItem, INotifyPropertyChanged
     {
+
+        public object CustomizationScreen { get; set; }
+
         /// <summary>
         /// Event handler used to check if property is changed
         /// </summary>
@@ -63,7 +66,8 @@ namespace CowboyCafe.Data
         protected void NotifyIfPropertyChanges(string property)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(property));
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Price"));
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Calories"));
         }
     }
 }

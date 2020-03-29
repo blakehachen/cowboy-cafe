@@ -18,6 +18,9 @@ namespace CowboyCafe.Data
     /// </summary>
     public abstract class Entree : IOrderItem, INotifyPropertyChanged
     {
+
+        public object CustomizationScreen { get; set; }
+
         /// <summary>
         /// Event handler used to check if property is changed
         /// </summary>

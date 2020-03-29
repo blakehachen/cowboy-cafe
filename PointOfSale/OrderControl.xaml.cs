@@ -45,6 +45,7 @@ namespace PointOfSale
             if(DataContext is Order)
             {
                 DataContext = new Order();
+                Container.Child = new MenuItemSelectionControl();
             }
         }
 
@@ -56,6 +57,7 @@ namespace PointOfSale
             if(DataContext is Order)
             {
                 DataContext = new Order();
+                Container.Child = new MenuItemSelectionControl();
             }
         }
 

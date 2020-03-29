@@ -170,8 +170,10 @@ namespace PointOfSale
             var orderControl = this.FindAncestor<OrderControl>();
             if (DataContext is Order data)
             {
-                data.Add(item);
+                
+                item.CustomizationScreen = screen;
                 screen.DataContext = item;
+                data.Add(item);
                 orderControl?.SwapScreen(screen);
             }
         }

@@ -29,10 +29,13 @@ namespace CowboyCafe.Data
                 switch (Size)
                 {
                     case Size.Large:
+                       //NotifyIfPropertyChanges("Calories");
                         return 410;
                     case Size.Medium:
+                        //NotifyIfPropertyChanges("Calories");
                         return 378;
                     case Size.Small:
+                        //NotifyIfPropertyChanges("Calories");
                         return 312;
                     default:
                         throw new NotImplementedException();

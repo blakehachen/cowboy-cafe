@@ -52,7 +52,7 @@ namespace CowboyCafe.Data
         /// <summary>
         /// If there is ice
         /// </summary>
-        public bool Ice
+        public override bool Ice
         {
             get { return ice; }
             set 

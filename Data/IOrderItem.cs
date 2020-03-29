@@ -26,5 +26,8 @@ namespace CowboyCafe.Data
         /// Gets the special instrictions for preparing the order item
         /// </summary>
         List<string> SpecialInstructions { get; }
+
+                
+        object CustomizationScreen { get; set; }
     }
 }

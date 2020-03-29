@@ -6,7 +6,7 @@
              xmlns:local="clr-namespace:PointOfSale"
              mc:Ignorable="d" 
              
-             d:DesignHeight="600" d:DesignWidth="250">
+             d:DesignHeight="600" d:DesignWidth="300">
     <UserControl.Resources>
         <Style TargetType="ListBox">
             <Setter Property="HorizontalAlignment" Value="Stretch"/>
@@ -22,12 +22,14 @@
             <TextBlock Grid.Column="0" >Order Number</TextBlock>
             <TextBlock Grid.Column="1" Text="{Binding Path=OrderNumber}" TextAlignment="Center"/>
         </Grid>
-        <ListBox Name="OrderList" ItemsSource="{Binding Path=Items}" Width="270">
+        <!--This is the listbox in the OrderSummaryControl keeping track of all items added to an Order.-->
+        <ListBox HorizontalAlignment="Left" SelectionChanged="listItem_Click" SelectionMode="Single" Name="OrderList" ItemsSource="{Binding Path=Items}" Width="300">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <Grid>
                         <Grid.ColumnDefinitions>
-                            <ColumnDefinition/>
+                            <ColumnDefinition Width="200"/>
+                            <ColumnDefinition Width="50"/>
                             <ColumnDefinition Width="50"/>
                         </Grid.ColumnDefinitions>
                         <Grid.RowDefinitions>
@@ -36,8 +38,8 @@
                         </Grid.RowDefinitions>
                         <TextBlock HorizontalAlignment ="Left" Text="{Binding}"/>
                         <TextBlock HorizontalAlignment="Stretch" Grid.Column="1" Text="{Binding Path=Price,StringFormat=c}"/>
-                        <ListView ItemsSource="{Binding Path=SpecialInstructions}" Grid.Column="0" Grid.Row="1"/>
-
+                        <ListView Margin="-1" HorizontalAlignment="Left" ItemsSource="{Binding Path=SpecialInstructions}" Grid.Column="0" Grid.Row="1"/>
+                        <Button Margin="1" Foreground="White" Background="Red" HorizontalAlignment="Stretch" Grid.Column="2" Height="20" Width="20" Click="OnRemoveItem_Click">X</Button>
                     </Grid>
                 </DataTemplate>
             </ListBox.ItemTemplate>
