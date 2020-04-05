@@ -36,15 +36,14 @@
             <local:MenuItemSelectionControl Height="650"></local:MenuItemSelectionControl>
         </-->
 
-        <StackPanel Grid.Column="0" Grid.Row="0" Width="250"/>
-        <StackPanel Grid.Column="1" Grid.Row="1" Width="300">
-            <local:OrderSummaryControl Height="1000"></local:OrderSummaryControl>
-        </StackPanel>
-        
-        
+        <Grid x:Name="OrderSummary" Grid.Column="1" Grid.Row="1">
+           <local:OrderSummaryControl x:Name="OrderSumm" Visibility="Collapsed" Height="1000"></local:OrderSummaryControl>
+           <local:CompleteOrderSummaryControl x:Name="CompleteOrderSumm" Visibility="Collapsed"></local:CompleteOrderSummaryControl>
+        </Grid>
+
         <Border Name="Container" Grid.Row="1">
            <local:MenuItemSelectionControl/>
-        </Border>
+         </Border>
         
     </Grid>
     

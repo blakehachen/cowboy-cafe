@@ -12,6 +12,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.ComponentModel;
 
+
 namespace CowboyCafe.Data
 {
     public class Order : INotifyPropertyChanged
@@ -21,7 +22,6 @@ namespace CowboyCafe.Data
         /// </summary>
         private static uint lastOrderNumber;
 
-        
         private List<IOrderItem> items = new List<IOrderItem>();
         /// <summary>
         /// List representing items added to the order.
@@ -33,21 +33,24 @@ namespace CowboyCafe.Data
                 return items.ToArray();
             }
         }
-        
-      
+
+
         /// <summary>
         /// Gets the subtotal of the order.
         /// </summary>
+        public double Total => Math.Round(Subtotal * 1.16, 2);
+
+
         public double Subtotal
         {
             get
             {
                 double total = 0.0;
-                foreach(IOrderItem item in items)
+                foreach (IOrderItem item in items)
                 {
                     total += item.Price;
                 }
-                return total;
+                return Math.Round(total, 2);
             }
         }
 
@@ -63,6 +66,60 @@ namespace CowboyCafe.Data
             }
         }
 
+        public static uint CurrentOrderNumber
+        {
+            get
+            {
+                return lastOrderNumber;
+            }
+        }
+
+        public string Receipt
+        {
+            get
+            {
+
+
+                StringBuilder sb = new StringBuilder();
+
+                sb.Append("Order# " + CurrentOrderNumber.ToString() + "  ");
+                sb.Append(DateTime.Now.ToString() + "\n");
+
+                foreach (IOrderItem item in Items)
+                {
+                    sb.Append(item.ToString() + "  ");
+                    sb.Append(item.Price.ToString() + "\n");
+                    foreach (string i in item.SpecialInstructions)
+                    {
+                        sb.Append("  " + i.ToString() + "\n");
+                    }
+                }
+                sb.Append("Subtotal: " + Subtotal.ToString() + "\n");
+                sb.Append("Total After 16% Sales Tax: " + Total.ToString() + "\n");
+                if (PaymentType) sb.Append("Payment Type: Credit");
+                else sb.Append("Total paid: ");
+
+
+                return sb.ToString() + "\n\n";
+            }
+        }
+
+        private bool cash = false;
+
+        public bool PaymentType
+        {
+            get
+            {
+                return cash;
+            }
+
+            set
+            {
+                cash = value;
+            }
+        }
+
+
         /// <summary>
         /// Event handler that will be in charge of connecting our Order class with our user interface to utilize Data Binding.
         /// </summary>
@@ -75,15 +132,17 @@ namespace CowboyCafe.Data
         public void Add(IOrderItem item)
         {
             items.Add(item);
-            
-            
-            if (item is INotifyPropertyChanged pcitem) {
+
+
+            if (item is INotifyPropertyChanged pcitem)
+            {
                 pcitem.PropertyChanged += OnItemChanged;
             }
 
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Items"));
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Price"));
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Subtotal"));
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Total"));
         }
 
         /// <summary>
@@ -93,8 +152,8 @@ namespace CowboyCafe.Data
         public void Remove(IOrderItem item)
         {
             items.Remove(item);
-            
-           
+
+
             if (item is INotifyPropertyChanged pcitem)
             {
                 pcitem.PropertyChanged -= OnItemChanged;
@@ -103,6 +162,7 @@ namespace CowboyCafe.Data
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Items"));
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Price"));
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Subtotal"));
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Total"));
         }
 
         /// <summary>
@@ -111,7 +171,9 @@ namespace CowboyCafe.Data
         private void OnItemChanged(object sender, PropertyChangedEventArgs e)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Items"));
-            if(e.PropertyName == "Size") PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Subtotal"));
+            if (e.PropertyName == "Size") PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Subtotal")); PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Total"));
         }
+
+
     }
 }

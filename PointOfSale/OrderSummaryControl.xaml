@@ -46,6 +46,8 @@
         </ListBox>
         <TextBlock>Subtotal</TextBlock>
         <TextBlock Text="{Binding Path=Subtotal,StringFormat=c}"></TextBlock>
+        
+        
     </StackPanel>
 
     

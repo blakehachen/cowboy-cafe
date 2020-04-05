@@ -75,7 +75,7 @@ namespace CowboyCafe.DataTests.UnitTests
                     Price = price
                 });
             }
-            Assert.Equal(total, order.Subtotal);
+            Assert.Equal(Math.Round(total, 2), Math.Round(order.Subtotal, 2));
         }
 
         [Theory]

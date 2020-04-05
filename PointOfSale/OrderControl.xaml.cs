@@ -34,6 +34,7 @@ namespace PointOfSale
         public OrderControl()
         {
             InitializeComponent();
+            SetActiveUserControl(OrderSumm);
 
         }
 
@@ -44,8 +45,12 @@ namespace PointOfSale
         {
             if(DataContext is Order)
             {
+                
                 DataContext = new Order();
                 Container.Child = new MenuItemSelectionControl();
+                SetActiveUserControl(OrderSumm);
+                
+                
             }
         }
 
@@ -56,8 +61,10 @@ namespace PointOfSale
         {
             if(DataContext is Order)
             {
-                DataContext = new Order();
-                Container.Child = new MenuItemSelectionControl();
+                //DataContext = new Order();
+                SwapScreen(new TransactionControl());
+                SetActiveUserControl(CompleteOrderSumm);
+                
             }
         }
 
@@ -69,12 +76,33 @@ namespace PointOfSale
             Container.Child = element;
         }
 
+        public void SwapScreenAndNewOrder(FrameworkElement element)
+        {
+            Container.Child = element;
+            DataContext = new Order();
+            SetActiveUserControl(OrderSumm);
+        }
+
         /// <summary>
         /// When "Item Selection" is clicked it will generate a new instance of a menu item control returning the user to the main interface.
         /// </summary>
         private void ItemSelectionButton_Click(object sender, RoutedEventArgs e)
         {
-            Container.Child = new MenuItemSelectionControl();
+            if(DataContext is Order)
+            {
+                
+                SwapScreen(new MenuItemSelectionControl());
+                SetActiveUserControl(OrderSumm);
+            }
+            
+        }
+
+        public void SetActiveUserControl(UserControl control)
+        {
+            CompleteOrderSumm.Visibility = Visibility.Collapsed;
+            OrderSumm.Visibility = Visibility.Collapsed;
+            
+            control.Visibility = Visibility.Visible;
         }
     }
 }

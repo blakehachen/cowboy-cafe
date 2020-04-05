@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -12,23 +10,17 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using CowboyCafe.Data;
-using CashRegister;
 
 namespace PointOfSale
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for CompleteOrderSummaryControl.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class CompleteOrderSummaryControl : UserControl
     {
-        public MainWindow()
+        public CompleteOrderSummaryControl()
         {
             InitializeComponent();
-            var order = new Order();
-            this.DataContext = order;
         }
-
-        
     }
 }
