@@ -36,11 +36,13 @@ namespace CowboyCafe.Data
 
 
         /// <summary>
-        /// Gets the subtotal of the order.
+        /// Gets the total of the order.
         /// </summary>
         public double Total => Math.Round(Subtotal * 1.16, 2);
 
-
+        /// <summary>
+        /// Gets subtotal of the order.
+        /// </summary>
         public double Subtotal
         {
             get
