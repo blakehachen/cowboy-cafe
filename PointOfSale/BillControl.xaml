@@ -21,9 +21,9 @@
             <Border BorderThickness="5" BorderBrush="DarkGreen" Background="LightGreen" Margin="-40 2" Grid.Column="1">
                 <TextBlock Text="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:BillControl}}, Path=Denomination}" Foreground="DarkGreen" TextAlignment="Center" VerticalAlignment="Center" FontWeight="Bold"/>
             </Border>
-            <Button Grid.Row="1" Grid.Column="0" Click="OnDecreaseClicked">-</Button>
+            <Button Grid.Row="1" Grid.Column="0" Click="OnDecreaseClicked" Width="30" Height="30">-</Button>
             <TextBox Grid.Row="1" Grid.Column="1" TextAlignment="Center" VerticalAlignment="Center" HorizontalAlignment="Center" Text="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:BillControl}}, Path= Quantity}"/>
-            <Button Grid.Row="1" Grid.Column="2" Click="OnIncreaseClicked">+</Button>
+            <Button Grid.Row="1" Grid.Column="2" Click="OnIncreaseClicked" Width="30" Height="30">+</Button>
         </Grid>
     </Border>
 </UserControl>

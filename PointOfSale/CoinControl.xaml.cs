@@ -1,4 +1,14 @@
-﻿using System;
+﻿/*
+
+* Author: Blake Hachen
+* Co-Author: Nathan Bean
+
+* Class name: CoinControl.xaml.cs
+
+* Purpose: Represents a usercontrol for each coin denomination.
+
+*/
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Windows;
@@ -70,11 +80,21 @@ namespace PointOfSale
             
         }
 
+        /// <summary>
+        /// Updates quantity of denomination on the increase
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         public void OnIncreaseClicked(object sender, RoutedEventArgs e)
         {
             Quantity++; 
         }
 
+        /// <summary>
+        /// Updates Quantity of denomination on decrease.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         public void OnDecreaseClicked(object sender, RoutedEventArgs e)
         {
             Quantity--;

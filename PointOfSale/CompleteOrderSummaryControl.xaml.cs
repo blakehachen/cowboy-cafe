@@ -1,4 +1,13 @@
-﻿using System;
+﻿/*
+
+* Author: Blake Hachen
+
+* Class name: TransactionControl.xaml.cs
+
+* Purpose: A more refined copy of the OrderSummaryControl with no removal or selectionchanged events.
+
+*/
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Windows;

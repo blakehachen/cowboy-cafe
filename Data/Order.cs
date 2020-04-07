@@ -65,7 +65,10 @@ namespace CowboyCafe.Data
                 return lastOrderNumber;
             }
         }
-
+        
+        /// <summary>
+        /// Gets the current OrderNumber for the transaction
+        /// </summary>
         public static uint CurrentOrderNumber
         {
             get
@@ -97,7 +100,14 @@ namespace CowboyCafe.Data
                 sb.Append("Subtotal: " + Subtotal.ToString() + "\n");
                 sb.Append("Total After 16% Sales Tax: " + Total.ToString() + "\n");
                 if (PaymentType) sb.Append("Payment Type: Credit");
-                else sb.Append("Total paid: ");
+                else
+                {
+                    sb.Append("Total paid: " + CashPaid.ToString() + "\n");
+                    sb.Append("Change: " + Change.ToString() + "\n");
+                    sb.Append("Payment Type: Cash");
+                }
+                
+
 
 
                 return sb.ToString() + "\n\n";
@@ -105,7 +115,9 @@ namespace CowboyCafe.Data
         }
 
         private bool cash = false;
-
+        /// <summary>
+        /// Represents whether the payment type used for the order is a cash payment or credit payment.
+        /// </summary>
         public bool PaymentType
         {
             get
@@ -118,6 +130,17 @@ namespace CowboyCafe.Data
                 cash = value;
             }
         }
+
+        /// <summary>
+        /// Used to grab cash paid from cashregistermodelview.
+        /// </summary>
+        public double CashPaid { get; set; }
+
+        /// <summary>
+        /// Used to grab change dispersed from cashregistermodelview
+        /// </summary>
+        public double Change { get; set; }
+        
 
 
         /// <summary>
