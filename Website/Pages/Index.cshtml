@@ -1,0 +1,86 @@
+﻿@page
+@using CowboyCafe.Data
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+    //Uncomment below to test error page.
+    //throw new Exception("Testing...");
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome to Cowboy Cafe!</h1>
+    <p>We at Cowboy Cafe are proud to bring you authentic trail meals from the American West. Shake off the dust on your boots and sake your thirst with one of our old-fashioned hand-jerked sodas. Dip your Pan de Campo into a bowl of beans. Or conquer the mighty Texas Triple Burger! You’ve had a hard ride - so take it easy with us.</p>
+    <ul class="menu-item-type">
+        <li>
+            <!--Loops through all the sides and prints the price, calories and name while updating the size on the individual side-->
+            <h2>Entrees</h2>
+            <div class="menu-item">
+                <ul class="entree-list">
+                    @foreach (Entree entree in Menu.Entrees)
+                    {
+                        <div class="entrees"><strong>@entree.ToString()</strong> |  @entree.Calories.ToString() Cal.  |  $@Math.Round(entree.Price, 2).ToString()</div>
+                    }
+                </ul>
+            </div>
+        </li>
+        <li>
+            <!--Loops through all the sides and prints the price, calories and name while updating the size on the individual side-->
+            <h2>Sides</h2>
+            <div class="menu-item">
+                <ul class="side-list">
+
+                    @foreach (Side side in Menu.Sides)
+                    {
+
+                        @if (side.Size == Size.Small)
+                        {
+                            <div class="sides"><strong>@side.ToString()</strong>  |  @side.Calories.ToString() Cal.  |  $@Math.Round(side.Price,2).ToString()</div>
+                            side.Size++;
+                        }
+
+                        @if (side.Size == Size.Medium)
+                        {
+                            <div class="sides">@side.Size.ToString()  |  @side.Calories.ToString() Cal. |  $@Math.Round(side.Price,2).ToString()</div>
+                            side.Size++;
+                        }
+
+                        @if (side.Size == Size.Large)
+                        {
+                            <div class="sides">@side.Size.ToString()  |  @side.Calories.ToString() Cal.  |  $@Math.Round(side.Price,2).ToString()</div>
+                        }
+                    }
+                </ul>
+            </div>
+        </li>
+        <li>
+            <!--Loops through all the drinks and prints the price, calories and name while updating the size on the individual drink-->
+            <h2>Drinks</h2>
+            <div class="menu-item">
+                <ul class="drink-list">
+
+                    @foreach (Drink drink in Menu.Drinks)
+                    {
+
+                        @if (drink.Size == Size.Small)
+                        {
+                            <div class="drinks"><strong>@drink.ToString()</strong>  |  @drink.Calories.ToString() Cal.  |  $@Math.Round(drink.Price, 2).ToString()</div>
+                            drink.Size++;
+                        }
+
+                        @if (drink.Size == Size.Medium)
+                        {
+                            <div class="drinks">@drink.Size.ToString()  |  @drink.Calories.ToString() Cal. |  $@Math.Round(drink.Price, 2).ToString()</div>
+                            drink.Size++;
+                        }
+
+                        @if (drink.Size == Size.Large)
+                        {
+                            <div class="drinks">@drink.Size.ToString()  |  @drink.Calories.ToString() Cal.  |  $@Math.Round(drink.Price, 2).ToString()</div>
+                        }
+                    }
+                </ul>
+            </div>
+        </li>
+    </ul>
+    
+</div>
