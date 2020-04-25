@@ -41,6 +41,8 @@ namespace CowboyCafe.Data
         /// </summary>
         public abstract List<string> SpecialInstructions { get; }
 
+
+        public string Category { get; set; } = "Entree";
         /// <summary>
         /// This method will be used to check a string that correlates to the properties of the order items and change it accordingly
         /// </summary>

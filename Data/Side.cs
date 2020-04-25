@@ -22,6 +22,8 @@ namespace CowboyCafe.Data
 
         public object CustomizationScreen { get; set; }
 
+        public string Category { get; set; } = "Side";
+
         /// <summary>
         /// Event handler used to check if property is changed
         /// </summary>

@@ -27,7 +27,11 @@ namespace CowboyCafe.Data
         /// </summary>
         List<string> SpecialInstructions { get; }
 
-                
+
         object CustomizationScreen { get; set; }
+
+        uint Calories { get; }
+
+        public string Category { get; set; }
     }
 }

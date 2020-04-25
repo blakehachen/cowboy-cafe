@@ -1,14 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace CowboyCafe.Data
 {
     public static class Menu
     {
-        private static List<Entree> entrees = new List<Entree>();
-        private static List<Side> sides = new List<Side>();
-        private static List<Drink> drinks = new List<Drink>();
+        private static List<IOrderItem> entrees = new List<IOrderItem>();
+        private static List<IOrderItem> sides = new List<IOrderItem>();
+        private static List<IOrderItem> drinks = new List<IOrderItem>();
         private static List<IOrderItem> completemenu = new List<IOrderItem>();
         /// <summary>
         /// Loads all entrees, sides and drinks into their respective lists
@@ -49,7 +50,112 @@ namespace CowboyCafe.Data
         }
         
         
-        
+        public static string[] ItemTypes
+        {
+            get => new string[]
+            {
+                "Entree",
+                "Side",
+                "Drink"
+            };
+        }
+
+        public static IEnumerable<IOrderItem> Search(IEnumerable<IOrderItem> items, string terms)
+        {
+            
+            List<IOrderItem> results = new List<IOrderItem>();
+
+            if (terms == null) return items;
+
+            foreach(IOrderItem item in items)
+            {
+                if (item.ToString().Contains(terms, StringComparison.InvariantCultureIgnoreCase))
+                {
+                    results.Add(item);
+                }
+            }
+
+            return results;
+        }
+
+        public static IEnumerable<IOrderItem> FilterByCategory(IEnumerable<IOrderItem> items, IEnumerable<string> types)
+        {
+            if (types == null || types.Count() == 0) return items;
+            List<IOrderItem> results = new List<IOrderItem>();
+            foreach(IOrderItem item in items)
+            {
+                if(item.Category != null && types.Contains(item.Category) )
+                {
+                    results.Add(item);
+                }
+            }
+            return results;
+            
+        }
+
+        public static IEnumerable<IOrderItem> FilterByCalories(IEnumerable<IOrderItem> items, uint? min, uint? max)
+        {
+            if (min == null && max == null) return items;
+            List<IOrderItem> results = new List<IOrderItem>();
+
+            if(min == null)
+            {
+                foreach(IOrderItem item in items)
+                {
+                    if (item.Calories <= max) results.Add(item);
+                }
+                return results;
+            }
+
+            if(max == null)
+            {
+                foreach(IOrderItem item in items)
+                {
+                    if (item.Calories >= min) results.Add(item);
+                }
+                return results;
+            }
+            foreach(IOrderItem item in items)
+            {
+                if(item.Calories >= min && item.Calories <= max)
+                {
+                    results.Add(item);
+                }
+            }
+            return results;
+        }
+
+        public static IEnumerable<IOrderItem> FilterByPrice(IEnumerable<IOrderItem> items, double? min, double? max)
+        {
+            if (min == null && max == null) return items;
+            List<IOrderItem> results = new List<IOrderItem>();
+
+            if (min == null)
+            {
+                foreach (IOrderItem item in items)
+                {
+                    if (item.Price <= max) results.Add(item);
+                }
+                return results;
+            }
+
+            if (max == null)
+            {
+                foreach (IOrderItem item in items)
+                {
+                    if (item.Price >= min) results.Add(item);
+                }
+                return results;
+            }
+            foreach (IOrderItem item in items)
+            {
+                if (item.Price >= min && item.Price <= max)
+                {
+                    results.Add(item);
+                }
+            }
+            return results;
+        }
         /// <summary>
         /// Gets all the entrees in the entree list
         /// </summary>
