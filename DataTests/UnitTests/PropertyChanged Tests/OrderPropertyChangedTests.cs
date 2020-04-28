@@ -16,6 +16,9 @@ namespace CowboyCafe.DataTests.UnitTests.PropertyChanged_Tests
             public List<string> SpecialInstructions { get; set; } = new List<string>();
 
             object IOrderItem.CustomizationScreen { get; set; }
+            public string Category { get; set; }
+
+            public uint Calories { get; }
         }
 
         [Fact]

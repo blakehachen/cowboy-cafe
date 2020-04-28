@@ -60,14 +60,15 @@ body {
 }
 
 .border-top {
-  border-top: 1px solid #e5e5e5;
+    border-top: 1px solid #e5e5e5;
+   
 }
 .border-bottom {
   border-bottom: 1px solid #e5e5e5;
 }
 
 .box-shadow {
-  box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
+    box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
 }
 
 button.accept-policy {
@@ -92,5 +93,54 @@ body {
   width: 100%;
   white-space: nowrap;
   line-height: 60px; /* Vertically center the text there */
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f6f6f6;
+    min-width: 300px;
+    overflow: auto;
+    border: 1px solid #ddd;
+    z-index: 1;
+}
+
+.show {
+    display: contents;
+}
+
+.drpdwnbtn{
+    background-color: darkgrey;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    padding: 10px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+}
+
+form#menu-database{
+    display:grid;
+    grid-template-rows: auto auto;
+}
+
+#filters{
+    display: flex;
+    flex-direction: column;
+}
+
+#filters input[type="checkbox"] {
+    vertical-align: middle;
+}
+
+#filters h4{
+    font-size: 20px;
+    padding-top: 10px;
+    padding-bottom: 10px;
 }
 

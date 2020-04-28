@@ -12,9 +12,17 @@ namespace Website.Pages
     public class IndexModel : PageModel
     {
         private readonly ILogger<IndexModel> _logger;
-
+        /// <summary>
+        /// Holds Entrees Collection
+        /// </summary>
         public IEnumerable<IOrderItem> Entrees { get; protected set; }
+        /// <summary>
+        /// Holds Sides Collection
+        /// </summary>
         public IEnumerable<IOrderItem> Sides { get; protected set; }
+        /// <summary>
+        /// Holds Drinks Collection
+        /// </summary>
         public IEnumerable<IOrderItem> Drinks { get; protected set; }
         /// <summary>
         /// The current search terms
@@ -32,13 +40,13 @@ namespace Website.Pages
         /// minimum calories
         /// </summary>
         [BindProperty]
-        public uint? CalorieMin { get; set; }
+        public int? CalorieMin { get; set; }
 
         /// <summary>
         /// maximum calories
         /// </summary>
         [BindProperty]
-        public uint? CalorieMax { get; set; }
+        public int? CalorieMax { get; set; }
         /// <summary>
         /// maximum price
         /// </summary>
@@ -57,6 +65,9 @@ namespace Website.Pages
             _logger = logger;
         }
 
+        /// <summary>
+        /// Initializes the Webpage with original Menu
+        /// </summary>
         public void OnGet()
         {
 
@@ -66,21 +77,26 @@ namespace Website.Pages
             
         }
 
+        /// <summary>
+        /// Modifies Webpage to Include Filtering by search, Calories, and price.
+        /// </summary>
         public void OnPost()
         {
 
             Entrees = Menu.Search(Menu.Entrees, SearchTerms);
             Entrees = Menu.FilterByCategory(Entrees, ItemTypes);
             Entrees = Menu.FilterByCalories(Entrees, CalorieMin, CalorieMax);
+            Entrees = Menu.FilterByPrice(Entrees, PriceMin, PriceMax);
 
             Sides = Menu.Search(Menu.Sides, SearchTerms);
             Sides = Menu.FilterByCategory(Sides, ItemTypes);
             Sides = Menu.FilterByCalories(Sides, CalorieMin, CalorieMax);
+            Sides = Menu.FilterByPrice(Sides, PriceMin, PriceMax);
 
             Drinks = Menu.Search(Menu.Drinks, SearchTerms);
             Drinks = Menu.FilterByCategory(Drinks, ItemTypes);
             Drinks = Menu.FilterByCalories(Drinks, CalorieMin, CalorieMax);
-
+            Drinks = Menu.FilterByPrice(Drinks, PriceMin, PriceMax);
 
         }
     }

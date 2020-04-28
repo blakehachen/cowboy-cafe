@@ -49,7 +49,9 @@ namespace CowboyCafe.Data
 
         }
         
-        
+        /// <summary>
+        /// String array of Item Categories/Types
+        /// </summary>
         public static string[] ItemTypes
         {
             get => new string[]
@@ -60,6 +62,12 @@ namespace CowboyCafe.Data
             };
         }
 
+        /// <summary>
+        /// Filters Collection by search terms
+        /// </summary>
+        /// <param name="items">Collection to filter</param>
+        /// <param name="terms">terms used to determine the new collection</param>
+        /// <returns></returns>
         public static IEnumerable<IOrderItem> Search(IEnumerable<IOrderItem> items, string terms)
         {
             
@@ -78,6 +86,12 @@ namespace CowboyCafe.Data
             return results;
         }
 
+        /// <summary>
+        /// Filters collection by item category (Entree, Drink, Side)
+        /// </summary>
+        /// <param name="items">Collection to filter</param>
+        /// <param name="types">Collection of Item Types</param>
+        /// <returns></returns>
         public static IEnumerable<IOrderItem> FilterByCategory(IEnumerable<IOrderItem> items, IEnumerable<string> types)
         {
             if (types == null || types.Count() == 0) return items;
@@ -93,7 +107,14 @@ namespace CowboyCafe.Data
             
         }
 
-        public static IEnumerable<IOrderItem> FilterByCalories(IEnumerable<IOrderItem> items, uint? min, uint? max)
+        /// <summary>
+        /// Filters collection by calories
+        /// </summary>
+        /// <param name="items">collection to filter</param>
+        /// <param name="min">calorie min criteria</param>
+        /// <param name="max">calorie max criteria</param>
+        /// <returns></returns>
+        public static IEnumerable<IOrderItem> FilterByCalories(IEnumerable<IOrderItem> items, int? min, int? max)
         {
             if (min == null && max == null) return items;
             List<IOrderItem> results = new List<IOrderItem>();
@@ -124,7 +145,13 @@ namespace CowboyCafe.Data
             }
             return results;
         }
-
+        /// <summary>
+        /// Filters Collection based on min and max parameters
+        /// </summary>
+        /// <param name="items">Collection to filter</param>
+        /// <param name="min">price min criteria</param>
+        /// <param name="max">price max criteria</param>
+        /// <returns></returns>
         public static IEnumerable<IOrderItem> FilterByPrice(IEnumerable<IOrderItem> items, double? min, double? max)
         {
             if (min == null && max == null) return items;
