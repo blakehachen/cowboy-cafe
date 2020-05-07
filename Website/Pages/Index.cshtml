@@ -52,11 +52,15 @@
                 <!--Loops through all the sides and prints the price, calories and name while updating the size on the individual side-->
                 <h2>Entrees</h2>
                 <div class="menu-item">
-                    <ul class="entree-list">
-                        @foreach (Entree entree in @Model.Entrees)
-                        {
-                            <div class="entrees"><strong>@entree.ToString()</strong> |  @entree.Calories.ToString() Cal.  |  $@Math.Round(entree.Price, 2).ToString()</div>
-                        }
+                    <ul class="item-list">
+                        <li>
+                            @foreach (Entree entree in @Model.Entrees)
+                            {
+                                <div class="item-title"><strong>@entree.ToString()</strong></div>
+                                <div class="price">@Math.Round(entree.Price,2).ToString()</div>
+                                <div class="calories">@entree.Calories.ToString()</div>
+                            }
+                        </li>
                     </ul>
                 </div>
             </li>
@@ -64,28 +68,36 @@
                 <!--Loops through all the sides and prints the price, calories and name while updating the size on the individual side-->
                 <h2>Sides</h2>
                 <div class="menu-item">
-                    <ul class="side-list">
-
-                        @foreach (Side side in @Model.Sides)
-                        {
-
-                            @if (side.Size == Size.Small)
+                    <ul class="item-list">
+                        
+                            @foreach (Side side in @Model.Sides)
                             {
-                                <div class="sides"><strong>@side.ToString()</strong>  |  @side.Calories.ToString() Cal.  |  $@Math.Round(side.Price, 2).ToString()</div>
-                                side.Size++;
-                            }
+                                <li>
+                                    <div class="items">
+                                        @if (side.Size == Size.Small)
+                                        {
 
-                            @if (side.Size == Size.Medium)
-                            {
-                                <div class="sides">@side.Size.ToString()  |  @side.Calories.ToString() Cal. |  $@Math.Round(side.Price, 2).ToString()</div>
-                                side.Size++;
-                            }
 
-                            @if (side.Size == Size.Large)
-                            {
-                                <div class="sides">@side.Size.ToString()  |  @side.Calories.ToString() Cal.  |  $@Math.Round(side.Price, 2).ToString()</div>
-                            }
-                            side.Size = Size.Small;
+                                            <aside><strong>@side.ToString()</strong>  |  @side.Calories.ToString() Cal.  |  $@Math.Round(side.Price, 2).ToString()</aside>
+                                            side.Size++;
+                                        }
+
+                                        @if (side.Size == Size.Medium)
+                                        {
+                                            <aside>@side.Size.ToString()  | @side.Calories.ToString() Cal. |  $@Math.Round(side.Price, 2).ToString()</aside>
+                                            side.Size++;
+                                        }
+
+                                        @if (side.Size == Size.Large)
+                                        {
+                                            <aside>@side.Size.ToString()  |  @side.Calories.ToString() Cal.  |  $@Math.Round(side.Price, 2).ToString()</aside>
+                                        }
+
+                                    </div>
+                                </li>
+                                side.Size = Size.Small;
+                         
+
                         }
                     </ul>
                 </div>
@@ -94,29 +106,43 @@
                 <!--Loops through all the drinks and prints the price, calories and name while updating the size on the individual drink-->
                 <h2>Drinks</h2>
                 <div class="menu-item">
-                    <ul class="drink-list">
-
-                        @foreach (Drink drink in @Model.Drinks)
-                        {
-
-                            @if (drink.Size == Size.Small)
+                    <ul class="item-list">
+                        <li>
+                            @foreach (Drink drink in @Model.Drinks)
                             {
-                                <div class="drinks"><strong>@drink.ToString()</strong>  |  @drink.Calories.ToString() Cal.  |  $@Math.Round(drink.Price, 2).ToString()</div>
-                                drink.Size++;
-                            }
 
-                            @if (drink.Size == Size.Medium)
-                            {
-                                <div class="drinks">@drink.Size.ToString()  |  @drink.Calories.ToString() Cal. |  $@Math.Round(drink.Price, 2).ToString()</div>
-                                drink.Size++;
-                            }
+                                <div class="items">
+                                    @if (drink.Size == Size.Small)
+                                    {
 
-                            @if (drink.Size == Size.Large)
-                            {
-                                <div class="drinks">@drink.Size.ToString()  |  @drink.Calories.ToString() Cal.  |  $@Math.Round(drink.Price, 2).ToString()</div>
+
+                                        <aside><strong>@drink.ToString()</strong>  |  @drink.Calories.ToString() Cal.  |  $@Math.Round(drink.Price, 2).ToString()</aside>
+                                        drink.Size++;
+                                    }
+
+                                    @if (drink.Size == Size.Medium)
+                                    {
+                                        <aside>@drink.Size.ToString()  | @drink.Calories.ToString() Cal. |  $@Math.Round(drink.Price, 2).ToString()</aside>
+                                        drink.Size++;
+                                    }
+
+                                    @if (drink.Size == Size.Large)
+                                    {
+                                        <aside>@drink.Size.ToString()  |  @drink.Calories.ToString() Cal.  |  $@Math.Round(drink.Price, 2).ToString()</aside>
+                                    }
+                                    @if (drink.ToString() == "Large Cream Soda Jerked Soda")
+                                    {
+
+                                        <aside><strong>Flavors:</strong> Cream Soda, Orange Soda, Sarsparilla, Birch Beer, Root Beer</aside>
+
+                                    }
+
+                                </div>
+                                drink.Size = Size.Small;
+
+
                             }
-                            drink.Size = Size.Small;
-                        }
+                        </li>
                     </ul>
                 </div>
             </li>

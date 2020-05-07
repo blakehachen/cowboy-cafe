@@ -5,19 +5,70 @@ for details on configuring this project to bundle and minify static web assets. 
 
 
 /*centers menu items adds some spacing between each menu item type*/
+
 ul.menu-item-type > li {
     padding-top: 30px;
     padding-bottom: 30px;
     list-style-type: none;
-    border-bottom: 2px solid black;
+    border-bottom: 1px solid black;
     margin: 20px;
-    justify-content:center;
+    justify-content: space-between;
+    display:flex;
+    flex-direction: column;
+    min-width: 50px;
 
+}
+
+ul.menu-item-type{
+    display:flex;
+    flex-direction: row;
+    align-items:flex-start;
+    
+}
+
+ul.item-list > li {
+    list-style-type: none;
+    border-bottom: 1px solid lightgray;
+    margin: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    min-height: 50px;
+    
 }
 
 /*Enlarges font for menu items*/
 .menu-item{
     font-size: 18px;
+}
+
+.items{
+    padding-bottom:30px;
+}
+
+.items-entrees{
+    padding-bottom: 10px;
+}
+
+.price, .calories {
+    color: gray;
+    justify-content: left;
+    width: 100px;
+    text-align: left;
+    font-size: 1.2rem;
+}
+
+.price::before{
+    content: "Price";
+    display: block;
+    font-size: 1rem;
+}
+
+.calories::before{
+    content: "Calories";
+    display: block;
+    font-size: 1rem;
 }
 
 
@@ -125,7 +176,7 @@ body {
 }
 
 form#menu-database{
-    display:grid;
+    display: grid;
     grid-template-rows: auto auto;
 }
 
